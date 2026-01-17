@@ -30,9 +30,9 @@
 	}
 
 	:global(body) {
-		background-color: #050505;
+		background-color: #1f1f1f;
 		color: #73b455;
-		font-family: 'Courier New', monospace;
+		font-family: 'IBM Plex Mono', 'Courier New', monospace;
 		margin: 0;
 		display: flex;
 		justify-content: center;

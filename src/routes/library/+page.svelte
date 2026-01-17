@@ -96,16 +96,6 @@
 
 <style>
 	/* 針對整個頁面進行背景與基礎文字顏色設定 */
-	:global(body) {
-		background-color: #1f1f1f;
-		color: #73b455;
-		/* 優先使用 IBM Plex Mono，後備使用系統內建等寬字體 */
-		font-family: 'IBM Plex Mono', 'Courier New', monospace;
-		margin: 0;
-		padding: 20px;
-		-webkit-font-smoothing: antialiased; /* 讓字體在 Mac/Chrome 上更清晰 */
-	}
-
 	:global(input, button, pre, a) {
 		font-family: 'IBM Plex Mono', monospace !important;
 	}
