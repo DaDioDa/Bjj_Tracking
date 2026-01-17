@@ -1,5 +1,9 @@
 <script>
 	import { base } from '$app/paths';
+	import '@fontsource/ibm-plex-mono/300.css';
+	import '@fontsource/ibm-plex-mono/400.css';
+	import '@fontsource/ibm-plex-mono/600.css';
+
 	let { children } = $props();
 </script>
 
@@ -19,13 +23,6 @@
 		{@render children()}
 	</main>
 </div>
-
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link
-	href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;600&display=swap"
-	rel="stylesheet"
-/>
 
 <style>
 	:global(*) {

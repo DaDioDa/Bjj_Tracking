@@ -28,6 +28,7 @@
 		"vite": "^7.2.6"
 	},
 	"dependencies": {
+		"@fontsource/ibm-plex-mono": "^5.2.7",
 		"dexie": "^4.2.1"
 	}
 }
