@@ -101,7 +101,7 @@
 		{:else}
 			{#each missionsWithDetails as item (item.id)}
 				<div class="ascii-card">
-					<pre>+--- [ TRK_00{item.id} ] -----------------------+</pre>
+					<div class="ascii-line">+ [ TRK_00{item.id} ]</div>
 					<div class="card-content">
 						<p class="mission-name">| TECH: {item.techName}</p>
 						{#if item.techDetails && item.techDetails.checkpoints}
@@ -119,12 +119,9 @@
 								>[-]</button
 							>
 							<span class="count">[{item.session_reps || 0}]</span>
-							<button class="link-style btn-op btn-neutral" onclick={() => updateReps(item, 1)}
-								>[+]</button
-							>
 						</div>
 					</div>
-					<pre>+---------------------------------------+</pre>
+					<div class="ascii-line">+</div>
 				</div>
 			{/each}
 		{/if}
@@ -158,13 +155,17 @@
 	.mission-name {
 		margin: 5px 0;
 		font-weight: bold;
+		white-space: pre-wrap;
+		word-break: break-all;
 	}
 
 	.tiny {
 		font-size: 0.8em;
 		opacity: 0.7;
-		margin: 0;
+		margin: 5px 0;
 		padding-left: 10px;
+		white-space: pre-wrap;
+		word-break: break-all;
 	}
 
 	.counter-row {

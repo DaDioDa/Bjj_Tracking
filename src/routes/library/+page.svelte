@@ -66,24 +66,26 @@
 		{#if techs && techs.length > 0}
 			{#each techs as item (item.id)}
 				<div class="item">
-					<pre>+---------------------------------------+</pre>
-					<p>| NAME: {item.name}</p>
-					<p>| TAGS: {item.tags?.join(', ')}</p>
-					<p>| FOCUS: {item.is_focused ? '[V]' : '[ ]'}</p>
-					<p>| PRACTICE: {item.practice_count || 0} reps</p>
-					<div class="actions">
-						|
-						<button
-							class="link-style {item.is_focused ? 'btn-destructive' : 'btn-primary'}"
-							onclick={() => toggleFocus(item)}
-						>
-							[{item.is_focused ? 'UNFOCUS' : 'FOCUS'}]
-						</button>
-						<button class="link-style btn-destructive" onclick={() => deleteTech(item.id)}>
-							[DELETE]
-						</button>
+					<div class="ascii-line">+ [ TECH_DATA ]</div>
+					<div class="item-content">
+						<p>| NAME: {item.name}</p>
+						<p>| TAGS: {item.tags?.join(', ')}</p>
+						<p>| FOCUS: {item.is_focused ? '[V]' : '[ ]'}</p>
+						<p>| PRACTICE: {item.practice_count || 0} reps</p>
+						<div class="actions">
+							|
+							<button
+								class="link-style {item.is_focused ? 'btn-destructive' : 'btn-primary'}"
+								onclick={() => toggleFocus(item)}
+							>
+								[{item.is_focused ? 'UNFOCUS' : 'FOCUS'}]
+							</button>
+							<button class="link-style btn-destructive" onclick={() => deleteTech(item.id)}>
+								[DELETE]
+							</button>
+						</div>
 					</div>
-					<pre>+---------------------------------------+</pre>
+					<div class="ascii-line">+</div>
 				</div>
 			{/each}
 		{:else if techs}
@@ -141,6 +143,17 @@
 		font: inherit;
 		text-decoration: none;
 		transition: all 0.1s;
+		padding: 2px 5px;
+	}
+
+	.item-content {
+		padding: 5px 0;
+	}
+
+	.item-content p {
+		margin: 5px 0;
+		white-space: pre-wrap;
+		word-break: break-all;
 	}
 
 	.link-style:hover {

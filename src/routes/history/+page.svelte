@@ -23,7 +23,7 @@
 	{#if logs && logs.length > 0}
 		{#each visibleLogs as log (log.id)}
 			<div class="ascii-card">
-				<pre>+--- [ DATE: {log.date} ] -------------------+</pre>
+				<div class="ascii-line">+ [ DATE: {log.date} ]</div>
 				<div class="content">
 					<p class="notes"><strong>> NOTES:</strong> {log.notes || 'No notes.'}</p>
 					<div class="stats">
@@ -39,7 +39,7 @@
 						{/if}
 					</div>
 				</div>
-				<pre>+-------------------------------------------+</pre>
+				<div class="ascii-line">+</div>
 			</div>
 		{/each}
 
@@ -96,6 +96,7 @@
 		white-space: pre-wrap;
 		margin-bottom: 10px;
 		color: #aaa;
+		word-break: break-all;
 	}
 
 	ul {

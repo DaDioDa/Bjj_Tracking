@@ -124,12 +124,13 @@
 	{#if allTechs === undefined}
 		<pre>[ SCANNING_DATABASE... ]</pre>
 	{:else if allTechs.length === 0}
-		<pre class="warning">
-+---------------------------------------+
-| ERROR: DATABASE_EMPTY                 |
-| Please go to LIBRARY to add techs.    |
-+---------------------------------------+
-        </pre>
+		<div class="warning-box">
+			<div class="ascii-line">+ [ ERR: DATABASE_EMPTY ]</div>
+			<div class="warning-body">
+				<p>Please go to LIBRARY to add techs.</p>
+			</div>
+			<div class="ascii-line">+</div>
+		</div>
 		<a href="{base}/library" class="link">[ GOTO_LIBRARY ]</a>
 	{:else}
 		<!-- ACTIVE MISSIONS SECTION -->
@@ -137,7 +138,7 @@
 			<h3>> ACTIVE_OPERATIONS</h3>
 			{#each activeMissionsWithDetails as item (item.id)}
 				<div class="ascii-card active">
-					<pre>+--- [ ACT_00{item.id} ] -----------------------+</pre>
+					<div class="ascii-line">+ [ ACT_00{item.id} ]</div>
 					<div class="card-content">
 						<p class="mission-name">| MISSION: {item.title}</p>
 						{#if item.tech}
@@ -190,7 +191,7 @@
 							>
 						{/if}
 					</div>
-					<pre>+---------------------------------------+</pre>
+					<div class="ascii-line">+</div>
 				</div>
 			{/each}
 		{/if}
@@ -202,14 +203,14 @@
 		{:else}
 			{#each recommendedMissions as tech, i (tech.id)}
 				<div class="ascii-card">
-					<pre>+--- [ REC_00{i + 1} ] -----------------------+</pre>
+					<div class="ascii-line">+ [ REC_00{i + 1} ]</div>
 					<div class="card-content">
 						<p class="mission-name">| TECH: {tech.name}</p>
 						<button class="link-style btn-primary" onclick={() => acceptMission(tech)}>
 							[ ACCEPT_MISSION ]
 						</button>
 					</div>
-					<pre>+---------------------------------------+</pre>
+					<div class="ascii-line">+</div>
 				</div>
 			{/each}
 		{/if}
@@ -285,8 +286,20 @@
 		margin: 0;
 		padding-left: 0;
 		line-height: 1.5;
-		white-space: pre;
+		white-space: pre-wrap; /* Changed from pre to pre-wrap for mobile */
+		word-break: break-all;
 		color: #73b455;
+	}
+
+	.warning-box {
+		margin: 20px 0;
+		border-left: 1px dashed #73b455;
+		border-right: 1px dashed #73b455;
+	}
+
+	.warning-body {
+		padding: 10px;
+		color: #8b4513;
 	}
 
 	/* 警告文字可以稍微保留一點紅色調，或者調成跟主題相近的暗橘 */
@@ -356,13 +369,15 @@
 	}
 
 	.link.large {
-		font-size: 1.2em;
+		font-size: 1.1em; /* Reduced from 1.2em */
 		font-weight: bold;
 		border: 1px solid #73b455;
-		padding: 10px 20px;
+		padding: 10px 15px; /* Reduced from 20px */
 		display: inline-block;
+		max-width: 100%;
 		color: #73b455;
 		text-decoration: none;
+		word-break: break-word;
 	}
 
 	.link.large:hover {

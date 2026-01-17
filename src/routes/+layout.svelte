@@ -5,7 +5,7 @@
 
 <div class="terminal">
 	<header>
-		<span>&#123; BJJ_LAB_v0.1 // SYSTEM_READY &#125;</span>
+		<span>&#123; BJJ_LAB_v0.2 // SYSTEM_READY &#125;</span>
 	</header>
 
 	<nav>
@@ -28,6 +28,10 @@
 />
 
 <style>
+	:global(*) {
+		box-sizing: border-box;
+	}
+
 	:global(body) {
 		background-color: #050505;
 		color: #73b455;
@@ -35,30 +39,67 @@
 		margin: 0;
 		display: flex;
 		justify-content: center;
+		overflow-x: hidden;
 	}
+
 	.terminal {
 		width: 100%;
 		max-width: 600px;
 		min-height: 100vh;
 		border-left: 1px solid #00ff4144;
 		border-right: 1px solid #00ff4144;
-		padding: 20px;
+		padding: 15px; /* Reduced from 20px */
+		display: flex;
+		flex-direction: column;
 	}
+
 	header {
 		border-bottom: 1px solid #73b455;
 		padding-bottom: 10px;
 		margin-bottom: 20px;
 		display: flex;
+		flex-wrap: wrap;
 		align-items: center;
 		gap: 10px;
+		font-size: 0.9rem;
 	}
+
 	nav {
 		margin-bottom: 20px;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 10px;
 	}
+
 	nav a {
 		color: #73b455;
 		text-decoration: none;
-		margin-right: 15px;
 		font-size: 0.8rem;
+		white-space: nowrap;
+	}
+
+	:global(pre) {
+		max-width: 100%;
+		overflow-x: auto;
+		white-space: pre-wrap;
+		word-break: break-all;
+	}
+
+	/* Helper classes for fluid ASCII */
+	:global(.ascii-line) {
+		display: flex;
+		align-items: center;
+		width: 100%;
+		font-family: 'Courier New', monospace;
+		color: #73b455;
+		white-space: nowrap;
+		overflow: hidden;
+	}
+
+	:global(.ascii-line::after) {
+		content: '';
+		flex-grow: 1;
+		margin-left: 5px;
+		border-bottom: 1px dashed #73b455;
 	}
 </style>
