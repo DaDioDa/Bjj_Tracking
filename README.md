@@ -1,38 +1,27 @@
-# sv
+# BJJ Tracking - 巴西柔術訓練追蹤
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+這是一個專為巴西柔術 (BJJ) 愛好者設計的訓練追蹤網頁應用程式。
 
-## Creating a project
+## 🌊 創作故事：全 Vibe Code 出擊
 
-If you're seeing this, you've probably already done this step. Congrats!
+這份專案最特別的地方在於：**我從來沒有寫過網頁，也沒有任何 vibe code 的經驗。**
 
-```sh
-# create a new project in the current directory
-npx sv create
+這次開發完全採用了 **全 Vibe Code** 的模式與 AI 協作完成。我不去糾結每一行程式碼的底層邏輯，而是專注於與 AI 溝通我的想像、需求與那種「對的感覺」。
 
-# create a new project in my-app
-npx sv create my-app
-```
+即便對程式碼一竅不通，只要 Vibe 對了，應用程式就這樣誕生了！
 
-## Developing
+---
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## 🚀 主要功能
 
-```sh
-npm run dev
+- **🎯 任務系統 (Mission System)**：設定你的專屬技術訓練目標，讓進步看得見。
+- **📚 技術庫 (Technique Library)**：整理並管理你學過的各種技術，記錄練習次數。
+- **📝 訓練日誌 (Training Log)**：簡單快速地記錄每次訓練的內容與心得。
+- **📜 歷史紀錄 (History)**：回顧你的柔術之路，看見自己流下的汗水與成長。
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+## 🛠️ 技術架構
 
-## Building
+- **Framework**: SvelteKit
+- **Storage**: Dexie.js (IndexedDB) - 所有的數據都儲存在你的瀏覽器中，兼顧隱私與速度。
+- **Design**: Vanilla CSS - 打造洗鍊且現代感的介面。
 
-To create a production version of your app:
-
-```sh
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
