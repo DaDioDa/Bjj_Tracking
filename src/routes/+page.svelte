@@ -40,27 +40,20 @@
 		// Helper to shuffle and pick n
 		const pickRandom = (arr, n) => [...arr].sort(() => 0.5 - Math.random()).slice(0, n);
 
-		// Try to pick 2 focused
-		const pickedFocused = pickRandom(focused, 2);
+		// We want total 3 missions if possible.
+		// Rule: Prefer 2 focused + 1 other.
+		// Exception: If no others, pick 3 focused.
+		// General fallback: Fill up to 3 with whatever is available.
 
-		// Try to pick 1 others
-		// If we didn't get enough focused (e.g. only 0 or 1 exists), we might want to fill more from others?
-		// For now, strict: 2 focused + 1 other.
-		// If we have strict requirements, we just take what we can.
+		// Try to pick focused first
+		// If we have "others", we target 2. If no "others", we target 3.
+		const targetFocusedCount = others.length > 0 ? 2 : 3;
+		const pickedFocused = pickRandom(focused, targetFocusedCount);
 
-		let finalSelection = [...pickedFocused];
+		// Fill the rest with others
+		const pickedOthers = pickRandom(others, 3 - pickedFocused.length);
 
-		// We need 3 total. If we have < 2 focused, we can fill the gap with others if desired?
-		// User request: "Must have 2 focused, plus 1 unfocused".
-		// Implementation: Best effort 2 focused. Then fill remaining slots (up to 3) with others/random?
-		// Let's do: Pick up to 2 specificly from 'focused' pool.
-		// 2. Pick up to 1 specifically from 'others' pool.
-		// That creates a mix.
-
-		const pickedOthers = pickRandom(others, 1);
-		finalSelection = [...finalSelection, ...pickedOthers];
-
-		return finalSelection;
+		return [...pickedFocused, ...pickedOthers];
 	});
 
 	// Derive Active Missions with details (Join Mission + Tech)
