@@ -25,3 +25,6 @@
 - **Storage**: Dexie.js (IndexedDB) - 所有的數據都儲存在你的瀏覽器中，兼顧隱私與速度。
 - **Design**: Vanilla CSS - 打造洗鍊且現代感的介面。
 
+# Todo
+- 每個任務的cd時間
+- 建立已測試為基礎的vibe coding流程

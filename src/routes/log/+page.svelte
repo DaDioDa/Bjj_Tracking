@@ -119,6 +119,9 @@
 								>[-]</button
 							>
 							<span class="count">[{item.session_reps || 0}]</span>
+							<button class="link-style btn-op btn-neutral" onclick={() => updateReps(item, 1)}
+								>[+]</button
+							>
 						</div>
 					</div>
 					<div class="ascii-line">+</div>
